@@ -1,0 +1,1 @@
+Devops eğitim dokümanlarının takibini bu repo ile yapacağız.
