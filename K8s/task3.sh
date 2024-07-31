@@ -55,10 +55,13 @@ NR > 1 {
 
     # Process the name
     processed_name = name
-    gsub(/(^| )([a-z])/, "\\U\\2", processed_name)  # Capitalize first letter of each part of the name
+    split(processed_name, name_parts, " ")
+    for (i in name_parts) {
+        name_parts[i] = toupper(substr(name_parts[i], 1, 1)) tolower(substr(name_parts[i], 2))
+    }
+    processed_name = name_parts[1] " " name_parts[2]
 
     # Split the processed name into first name and surname
-    split(processed_name, name_parts, " ")
     first_name = name_parts[1]
     surname = name_parts[2]
 
