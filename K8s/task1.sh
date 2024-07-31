@@ -13,9 +13,9 @@ firstletterupper() {
 
 #create email username
 generate_email() {
-    firstname=$1
+    name=$1
     lastname=$2
-    email_prefix=$(echo "${firstname:0:1}${lastname}" | tr '[:upper:]' '[:lower:]')
+    email_prefix=$(echo "${name:0:1}${lastname}" | tr '[:upper:]' '[:lower:]')
     echo "${email_prefix}@domain.com"
 }
 
