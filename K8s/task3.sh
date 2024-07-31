@@ -25,7 +25,7 @@ generate_email() {
     name=$1
     surname=$2
     email_prefix=$(echo "${name:0:1}${surname}" | tr '[:upper:]' '[:lower:]')
-    echo "${email_prefix}@abc.com"
+    echo "${email_prefix}@domain.com"
 }
 
 # Read the header of the CSV file
@@ -66,11 +66,11 @@ NR > 1 {
     surname = name_parts[2]
 
     # Generate the email
-    new_email = tolower(substr(first_name, 1, 1) surname "@abc.com")
+    new_email = tolower(substr(first_name, 1, 1) surname "@domain.com")
 
     # Check for email duplicates and append location_id if necessary
     if (system("grep -q \"" new_email "\" \"" output_file "\"") == 0) {
-        new_email = tolower(substr(first_name, 1, 1) surname "_" location_id "@abc.com")
+        new_email = tolower(substr(first_name, 1, 1) surname "_" location_id "@domain.com")
     }
 
     # Write the processed data to the new file
