@@ -1,4 +1,6 @@
-yapılacaklar: web app üzerinde örneğin java web server versiyonunu configden değiştirelim ve loglardan bu işlemi kimin yaptığını görüntüleyelim.
+yapılacaklar: 
+1)web app üzerinde örneğin java web server versiyonunu configden değiştirelim ve loglardan bu işlemi kimin yaptığını görüntüleyelim.
+2) web app i template / iac olarak kaydet ayarları boz ve template den geri yükle, portaldan ve iac via azure devops pipeline ı ile?
 
 
 Always On: Keeps the app loaded even when there's no traffic. When Always On isn't turned on (default), the app is unloaded after 20 minutes without any incoming requests. 
