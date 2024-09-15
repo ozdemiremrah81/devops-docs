@@ -6,3 +6,12 @@ yapılacaklar:
 Always On: Keeps the app loaded even when there's no traffic. When Always On isn't turned on (default), the app is unloaded after 20 minutes without any incoming requests. 
 The unloaded app can cause high latency for new requests because of its warm-up time. When Always On is turned on, the front-end load balancer sends a GET request to the application
 root every five minutes. The continuous ping prevents the app from being unloaded.
+
+
+On scale-out, autoscale runs if any rule is met. On scale-in, autoscale require all rules to be met.
+
+Assume there are two instances to begin with and then the average number of threads per instance grows to 625.
+Autoscale scales out adding a third instance.
+Next, assume that the average thread count across instance falls to 575.
+Before scaling in, autoscale tries to estimate what the final state will be if it scaled in. For example, 575 x 3 (current instance count) = 1,725 / 2 (final number of instances when scaled in) = 862.5 threads. This means autoscale would have to immediately scale out again even after it scaled in, if the average thread count remains the same or even falls only a small amount. However, if it scaled out again, the whole process would repeat, leading to an infinite loop.
+To avoid this situation (termed "flapping"), autoscale doesn't scale in at all. Instead, it skips and reevaluates the condition again the next time the service's job executes. This can confuse many people because autoscale wouldn't appear to work when the average thread count was 575.
