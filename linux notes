@@ -1,0 +1,2 @@
+1 nameserver lar hosts dosyasından daha öncelikli hale getirilebiliyor.
+dnssuffix in adı search /etc/resolv.conf
