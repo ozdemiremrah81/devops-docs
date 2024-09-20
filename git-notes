@@ -1,2 +1,7 @@
 git restore to restore "modified" file to when it was last staged.
+when you have text1 in staged area and text2 in modified state, but you want to commit text2 first: git restore --staged takes text1 back to the modified area.
 git commit -a (add+commit)
+git rm notes.txt 
+you must select one of the below options
+cached: retain the file in the working area
+force: delete the file permanently
