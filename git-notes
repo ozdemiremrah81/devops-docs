@@ -1,0 +1,2 @@
+git restore to restore "modified" file to when it was last staged.
+git commit -a (add+commit)
