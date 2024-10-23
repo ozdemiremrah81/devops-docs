@@ -1,3 +1,23 @@
 1 nameserver lar hosts dosyasından daha öncelikli hale getirilebiliyor.
 dnssuffix in adı search /etc/resolv.conf
 high swap memory usage indicates a shortage of ram and can seriously affect the overall system performance
+Log levels:
+ DEBUG
+ INFO
+ NOTICE
+ WARNING
+ ERR
+ CRIT
+ ALERT
+ EMERG
+
+ $ journalctl-u nginx.service
+ $ journalctl-p err –b -x
+
+ where:-p means priority or log level-b means since last boot-x means to add explanatory help texts to log messages in the output where this is available. These short help
+ texts will explain the context of an error or log event, possible solutions, as well as pointers to support 
+forums, developer documentation, and any other relevant manuals
+
+ $ journalctl-t dockerd (search for a tag)
+
+ $ journalctl--since "2015-06-26 23:15:00" --until "2015-06-26 23:20:00"
